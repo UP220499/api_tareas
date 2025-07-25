@@ -228,11 +228,12 @@ main {
 .modal-contenido {
     background: white;
     padding: 0;
-    border-radius: 12px;
+    border-radius: 16px;
     width: 90%;
     max-width: 500px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     animation: slideIn 0.3s ease;
+    overflow: hidden;
 }
 
 @keyframes slideIn {
@@ -247,18 +248,21 @@ main {
 }
 
 .modal-header {
-    background: linear-gradient(to right, #8B5CF6, #A855F7);
+    background: linear-gradient(135deg, #8B5CF6, #A855F7);
     color: white;
-    padding: 1rem;
-    border-radius: 12px 12px 0 0;
+    padding: 1.25rem 1.5rem;
+    border-radius: 16px 16px 0 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .modal-header h2 {
     margin: 0;
-    font-size: 1.25rem;
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
 }
 
 .btn-cerrar-modal {
@@ -269,36 +273,61 @@ main {
     cursor: pointer;
     padding: 0.5rem;
     transition: transform 0.2s;
+    opacity: 0.9;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .btn-cerrar-modal:hover {
     transform: scale(1.1);
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .modal-body {
-    padding: 1.5rem;
+    padding: 1.75rem;
+    background: #FFFFFF;
 }
 
 .campo-formulario {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.campo-formulario:last-child {
+    margin-bottom: 0;
 }
 
 .campo-formulario label {
     display: block;
     margin-bottom: 0.5rem;
-    color: #4B5563;
+    color: #374151;
     font-weight: 500;
+    font-size: 0.95rem;
 }
 
 .campo-formulario input,
 .campo-formulario select,
 .campo-formulario textarea {
     width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #E5E7EB;
+    padding: 0.75rem 1rem;
+    border: 2px solid #E5E7EB;
     border-radius: 8px;
     font-size: 1rem;
-    transition: border-color 0.2s;
+    transition: all 0.2s ease;
+    background-color: #F9FAFB;
+    color: #1F2937;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.campo-formulario input:hover,
+.campo-formulario select:hover,
+.campo-formulario textarea:hover {
+    border-color: #D1D5DB;
+    background-color: #FFFFFF;
 }
 
 .campo-formulario textarea {
@@ -311,14 +340,21 @@ main {
 .campo-formulario textarea:focus {
     outline: none;
     border-color: #8B5CF6;
+    background-color: #FFFFFF;
     box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
 }
 
+.campo-formulario textarea {
+    min-height: 120px;
+    resize: vertical;
+    line-height: 1.5;
+}
+
 .modal-footer {
-    padding: 1rem;
-    background-color: #F9FAFB;
+    padding: 1.25rem 1.75rem;
+    background-color: #F8FAFC;
     border-top: 1px solid #E5E7EB;
-    border-radius: 0 0 12px 12px;
+    border-radius: 0 0 16px 16px;
     display: flex;
     justify-content: flex-end;
     gap: 1rem;
@@ -326,32 +362,41 @@ main {
 
 .btn-cancelar,
 .btn-guardar {
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
     font-weight: 500;
+    font-size: 0.95rem;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 100px;
 }
 
 .btn-cancelar {
     background-color: #F3F4F6;
-    border: 1px solid #E5E7EB;
+    border: 2px solid #E5E7EB;
     color: #4B5563;
 }
 
 .btn-guardar {
-    background: linear-gradient(to right, #8B5CF6, #A855F7);
+    background: linear-gradient(135deg, #8B5CF6, #A855F7);
     border: none;
     color: white;
+    box-shadow: 0 2px 4px rgba(139, 92, 246, 0.2);
 }
 
 .btn-cancelar:hover {
     background-color: #E5E7EB;
+    border-color: #D1D5DB;
+    transform: translateY(-1px);
 }
 
 .btn-guardar:hover {
     transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(139, 92, 246, 0.25);
+    background: linear-gradient(135deg, #7C3AED, #9333EA);
 }
 .tarea-card h3 {
     margin: 0;
