@@ -2,8 +2,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #F8FAFC;
-    color: #1F2937;
+    background-color: #F9FAFB; /* Fondo general gris muy claro */
+    color: #1F2937; /* Texto gris oscuro */
 }
 header {
     background: linear-gradient(to right, #8B5CF6, #A855F7, #D946EF);
@@ -87,16 +87,16 @@ main {
     color: #1F2937;
 }
 .columna-tareas.todo {
-    background: #A5B4FC;
+    background: #AECBFA; /* Azul pastel */
 }
 .columna-tareas.in-progress {
-    background: #FCD34D;
+    background: #FDE68A; /* Amarillo pastel */
 }
 .columna-tareas.review {
-    background: #6EE7B7;
+    background: #A7F3D0; /* Verde menta suave */
 }
 .columna-tareas.done {
-    background: #93C5FD;
+    background: #DDD6FE; /* Lila pastel */
 }
 .lista-tareas-columna {
     flex: 1;
@@ -105,11 +105,11 @@ main {
     gap: 1rem;
 }
 .tarea-card {
-    background: #fff;
+    background: #FFFFFF; /* Tarjetas blancas */
     border-radius: 8px;
     padding: 0.75rem 1rem;
     box-shadow: 0 1px 4px rgba(0,0,0,0.06);
-    color: #1F2937;
+    color: #1F2937; /* Texto gris oscuro */
     transition: box-shadow 0.2s;
 }
 
@@ -157,12 +157,14 @@ main {
 .tarea-prioridad {
     padding: 0.2em 0.6em;
     border-radius: 9999px;
-    color: white;
+    color: #1F2937;
     font-weight: 500;
+    background: #F3F4F6;
+    border: 1px solid #E5E7EB;
 }
 
 .tarea-fecha {
-    color: #6B7280;
+    color: #1F2937;
     display: flex;
     align-items: center;
     gap: 0.25rem;

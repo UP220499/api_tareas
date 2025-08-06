@@ -37,7 +37,7 @@
                 <option value="media" selected>Prioridad Media</option>
                 <option value="alta">Prioridad Alta</option>
             </select>
-            <input type="date" id="fechaVencimiento" placeholder="Fecha de vencimiento" />
+            <input type="date" id="fechaVencimiento" placeholder="Fecha de vencimiento" min="" />
             <button class="btn-guardar-tarea" onclick="crearTarea()">
                 <i class="fa-solid fa-floppy-disk"></i> Guardar
             </button>
@@ -99,7 +99,7 @@
                 </div>
                 <div class="campo-formulario">
                     <label for="editFechaVencimiento">Fecha de Vencimiento</label>
-                    <input type="date" id="editFechaVencimiento">
+                    <input type="date" id="editFechaVencimiento" min="">
                 </div>
             </div>
             <div class="modal-footer">

@@ -41,6 +41,11 @@ async function crearTarea() {
         return;
     }
 
+    if (fechaVencimiento && !validarFecha(fechaVencimiento)) {
+        alert('La fecha de vencimiento no puede ser anterior a hoy');
+        return;
+    }
+
     const nuevaTarea = {
         titulo,
         descripcion,
@@ -276,6 +281,11 @@ async function guardarEdicion() {
         return;
     }
 
+    if (nuevaTarea.fechaVencimiento && !validarFecha(nuevaTarea.fechaVencimiento)) {
+        alert('La fecha de vencimiento no puede ser anterior a hoy');
+        return;
+    }
+
     try {
         // Obtener la tarea actual para mantener los campos que no se editan
         const tareaActual = tareas.find(t => t.id === tareaEditandoId);
@@ -323,10 +333,45 @@ async function eliminarTarea(id) {
     }
 }
 
+// Función para configurar la fecha mínima en los campos de fecha
+function configurarFechasMinimas() {
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('fechaVencimiento').min = today;
+    document.getElementById('editFechaVencimiento').min = today;
+}
+
+// Función para validar fecha
+function validarFecha(fecha) {
+    if (!fecha) return true; // Si no hay fecha, es válido (opcional)
+    const fechaSeleccionada = new Date(fecha);
+    fechaSeleccionada.setHours(0, 0, 0, 0);
+    
+    const hoy = new Date();
+    hoy.setHours(0, 0, 0, 0);
+    
+    return fechaSeleccionada >= hoy;
+}
+
 // Inicializar la aplicación
 document.addEventListener('DOMContentLoaded', () => {
     cargarTareas();
     configurarDragAndDrop();
+    configurarFechasMinimas();
+
+    // Agregar validación al cambio de fecha
+    document.getElementById('fechaVencimiento').addEventListener('change', function(e) {
+        if (!validarFecha(e.target.value)) {
+            alert('La fecha no puede ser anterior a hoy');
+            e.target.value = '';
+        }
+    });
+
+    document.getElementById('editFechaVencimiento').addEventListener('change', function(e) {
+        if (!validarFecha(e.target.value)) {
+            alert('La fecha no puede ser anterior a hoy');
+            e.target.value = '';
+        }
+    });
 
     // Cerrar el modal si se hace clic fuera de él
     document.getElementById('modalEditar').addEventListener('click', function(e) {
